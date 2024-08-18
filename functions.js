@@ -64,20 +64,29 @@ function loadBooks() {
         const card = document.createElement('div');
         card.classList = 'card';
         let title = document.createElement('h2');
-        title.innerText = book.title;
+        title.innerText = `Title: ${book.title}`;
         card.appendChild(title);
         let author = document.createElement('h3');
-        author.innerText = book.author;
+        author.innerText = `Author: ${book.author}`;
         card.appendChild(author);
         let volumePhara = document.createElement('p');
-        volumePhara.innerText = book.volume;
+        volumePhara.innerText = `Volume: ${book.volume}`;
         card.appendChild(volumePhara);
         let pagesPhara = document.createElement('p');
-        pagesPhara.innerText = book.pages;
+        pagesPhara.innerText = `Nº Pages ${book.pages}`;
         card.appendChild(pagesPhara);
         let readStatusPhara = document.createElement('p');
-        readStatusPhara.innerText = book.readStatus ? 'Completed' : 'To Read';;
+        readStatusPhara.innerText = book.readStatus ? 'Status: Completed' : 'Status: To Read';;
         card.appendChild(readStatusPhara);
+
+        const removeButton = document.createElement('button');
+        removeButton.addEventListener('click', () => {
+            let bookIndex = myLibrary.indexOf(book);
+            myLibrary.splice(bookIndex, 1);
+            loadBooks();
+        })
+
+        card.appendChild(removeButton)
 
         libraryBooks.appendChild(card);
     })
