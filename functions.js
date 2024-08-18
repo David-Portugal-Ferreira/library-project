@@ -48,11 +48,8 @@ submitForm.addEventListener('click', (e) => {
     addBookToLibrary(book);
     loadBooks();
 
-    inputTitle = '';
-    inputAuthor = '';
-    inputVolume = '';
-    inputPages = '';
-    inputReadStatus = '';
+    const form = document.querySelector('form');
+    form.reset();
     dialog.close();
 })
 
