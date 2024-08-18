@@ -30,9 +30,13 @@ function addBookToLibrary(book) {
 const btnAddBook = document.querySelector('.btn-add-book');
 const libraryBooks = document.querySelector('.library-books');
 
-btnAddBook.addEventListener('click', () => {
+const dialog = document.querySelector('dialog');
+const closeButton = document.querySelector('dialog button');
 
+btnAddBook.addEventListener('click', () => {
+    dialog.showModal()
 })
+closeButton.addEventListener('click', () => dialog.close())
 
 function loadBooks() {
     myLibrary.map((book) => {
