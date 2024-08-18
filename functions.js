@@ -42,7 +42,7 @@ submitForm.addEventListener('click', (e) => {
     let inputAuthor = document.querySelector('#author').value;
     let inputVolume = document.querySelector('#volume').value;
     let inputPages = document.querySelector('#pages').value;
-    let inputReadStatus = document.querySelector('#readStatus').value;
+    let inputReadStatus = document.querySelector('#readStatus').checked;
 
     const book = new Book(inputTitle, inputAuthor, inputVolume, inputPages, inputReadStatus);
     addBookToLibrary(book);
