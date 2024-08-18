@@ -29,16 +29,37 @@ function addBookToLibrary(book) {
 
 const btnAddBook = document.querySelector('.btn-add-book');
 const libraryBooks = document.querySelector('.library-books');
-
+const submitForm = document.querySelector('input[type=submit]');
 const dialog = document.querySelector('dialog');
 const closeButton = document.querySelector('dialog button');
 
-btnAddBook.addEventListener('click', () => {
-    dialog.showModal()
+btnAddBook.addEventListener('click', () => {dialog.showModal()});
+closeButton.addEventListener('click', () => dialog.close());
+
+submitForm.addEventListener('click', (e) => {
+    e.preventDefault();
+    let inputTitle = document.querySelector('#title').value;
+    let inputAuthor = document.querySelector('#author').value;
+    let inputVolume = document.querySelector('#volume').value;
+    let inputPages = document.querySelector('#pages').value;
+    let inputReadStatus = document.querySelector('#readStatus').value;
+
+    const book = new Book(inputTitle, inputAuthor, inputVolume, inputPages, inputReadStatus);
+    addBookToLibrary(book);
+    loadBooks();
+
+    inputTitle = '';
+    inputAuthor = '';
+    inputVolume = '';
+    inputPages = '';
+    inputReadStatus = '';
+    dialog.close();
 })
-closeButton.addEventListener('click', () => dialog.close())
 
 function loadBooks() {
+    if(libraryBooks.hasChildNodes()) {
+        libraryBooks.replaceChildren();
+    }
     myLibrary.map((book) => {
         const card = document.createElement('div');
         card.classList = 'card';
@@ -55,12 +76,10 @@ function loadBooks() {
         pagesPhara.innerText = book.pages;
         card.appendChild(pagesPhara);
         let readStatusPhara = document.createElement('p');
-        readStatusPhara.innerText = book.readStatus;
+        readStatusPhara.innerText = book.readStatus ? 'Completed' : 'To Read';;
         card.appendChild(readStatusPhara);
 
         libraryBooks.appendChild(card);
     })
 }
-
-
 loadBooks();
