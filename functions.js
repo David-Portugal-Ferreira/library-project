@@ -72,6 +72,7 @@ function constructCard(book) {
     readStatusPhara.innerText = book.readStatus ? 'Status: Completed' : 'Status: To Read';
     card.appendChild(readStatusPhara);
     const changerReadStatus = document.createElement('input');
+    if(book.readStatus) changerReadStatus.checked = true
     changerReadStatus.setAttribute("type", "checkbox")
     changerReadStatus.addEventListener('click', () => {
         book.changeReadStatus();
@@ -88,7 +89,6 @@ function constructCard(book) {
     })
     card.appendChild(removeButton)
 
-    
     libraryBooks.appendChild(card);
 }
 
