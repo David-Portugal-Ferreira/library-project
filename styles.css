@@ -1,17 +1,28 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: #FFF4EC;
 }
 
-.header {
-    display: flex;
+.wrapper {
+    margin: 20px;
 }
-.header-title {
-    width: 50%;
+
+.btn {
+    margin-bottom: 20px;
+
+}
+
+.btn-add-book {
+    color: white;
+    background-color: #766153;
+    border-style: none;
+    height: 45px;
+    width: 100px;
+    border-radius: 15px;
 }
 
 .library-books {
-    margin: 10px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 350px));
     gap: 10px;
@@ -20,6 +31,26 @@ body {
 .card {
     display: grid;
     grid-auto-rows: 50px;
-    background-color: lightcyan;
+    background-color: #E7CFBC;
     border-radius: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.card-status-div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.status-change {
+    align-self: center;
+    height: 50%;
+}
+
+.card-remove-button {
+    border-radius: 15px;
+    border-style: none;
+    color: white;
+    background-color: #766153;
+    font-size: 16px;
 }

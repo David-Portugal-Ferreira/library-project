@@ -12,7 +12,7 @@ Book.prototype.changeReadStatus = function () {
 }
 
 if (myLibrary.length === 0) {
-    const book = new Book('Test', 'test', 1, 300, false);
+    const book = new Book('The Hobbit', 'J. R. R. Tolkien', 1, 320, false);
     addBookToLibrary(book);
 }
 
@@ -56,31 +56,41 @@ function constructCard(book) {
     const card = document.createElement('div');
     card.classList = 'card';
     let title = document.createElement('h2');
+    title.classList = 'card-title';
     title.innerText = `Title: ${book.title}`;
     card.appendChild(title);
     let author = document.createElement('h3');
+    author.classList = 'card-author';
     author.innerText = `Author: ${book.author}`;
     card.appendChild(author);
     let volumePhara = document.createElement('p');
+    volumePhara.classList = 'card-volume';
     volumePhara.innerText = `Volume: ${book.volume}`;
     card.appendChild(volumePhara);
     let pagesPhara = document.createElement('p');
+    pagesPhara.classList = 'card-pages';
     pagesPhara.innerText = `Nº Pages ${book.pages}`;
     card.appendChild(pagesPhara);
 
+    let statusDiv = document.createElement('div');
+    statusDiv.classList = 'card-status-div'
     let readStatusPhara = document.createElement('p');
+    readStatusPhara.classList = 'status-text';
     readStatusPhara.innerText = book.readStatus ? 'Status: Completed' : 'Status: To Read';
-    card.appendChild(readStatusPhara);
+    statusDiv.appendChild(readStatusPhara);
     const changerReadStatus = document.createElement('input');
+    changerReadStatus.classList = 'status-change';
     if(book.readStatus) changerReadStatus.checked = true
     changerReadStatus.setAttribute("type", "checkbox")
     changerReadStatus.addEventListener('click', () => {
         book.changeReadStatus();
         readStatusPhara.innerText = book.readStatus ? 'Status: Completed' : 'Status: To Read';
     })
-    card.appendChild(changerReadStatus);
+    statusDiv.appendChild(changerReadStatus);
+    card.appendChild(statusDiv);
 
     const removeButton = document.createElement('button');
+    removeButton.classList = 'card-remove-button';
     removeButton.innerText = 'Remove Book';
     removeButton.addEventListener('click', () => {
         let bookIndex = myLibrary.indexOf(book);
