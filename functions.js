@@ -25,7 +25,17 @@ const libraryBooks = document.querySelector('.library-books');
 const submitForm = document.querySelector('input[type=submit]');
 const dialog = document.querySelector('dialog');
 const closeButton = document.querySelector('dialog button');
+const dialogReadStatus = document.querySelector('dialog form input[type=checkbox]');
+let dialogReadStatusPhara = document.querySelector('.dialog-readstatus-div p');
 
+dialogReadStatus.addEventListener('click', () => {
+    if(dialogReadStatus.checked) {
+        dialogReadStatusPhara.innerText = 'Completed';
+    } else {
+        dialogReadStatusPhara.innerText = 'To Read';
+    }
+    console.log(dialogReadStatusPhara, dialogReadStatus.checked)
+})
 btnAddBook.addEventListener('click', () => { dialog.showModal() });
 closeButton.addEventListener('click', () => dialog.close());
 
