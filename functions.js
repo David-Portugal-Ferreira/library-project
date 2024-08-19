@@ -37,7 +37,12 @@ dialogReadStatus.addEventListener('click', () => {
     console.log(dialogReadStatusPhara, dialogReadStatus.checked)
 })
 btnAddBook.addEventListener('click', () => { dialog.showModal() });
-closeButton.addEventListener('click', () => dialog.close());
+closeButton.addEventListener('click', () => {
+    const form = document.querySelector('form');
+    form.reset();
+    dialogReadStatusPhara.innerText = 'To Read';
+    dialog.close()
+});
 
 submitForm.addEventListener('click', (e) => {
     e.preventDefault();
@@ -53,6 +58,7 @@ submitForm.addEventListener('click', (e) => {
 
     const form = document.querySelector('form');
     form.reset();
+    dialogReadStatusPhara.innerText = 'To Read';
     dialog.close();
 })
 
