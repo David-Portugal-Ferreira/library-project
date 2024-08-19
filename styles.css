@@ -66,6 +66,9 @@ dialog div {
 input[type=text],
 input[type=number] {
     width: 300px;
+    height: 25px;
+    border-radius: 10px;
+    border-width: .5px;
 }
 
 dialog label {
