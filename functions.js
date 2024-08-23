@@ -1,17 +1,33 @@
 const myLibrary = [];
 
-function Book(title, author, volume, pages, readStatus) {
-    this.title = title;
-    this.author = author;
-    this.volume = volume;
-    this.pages = pages;
-    this.readStatus = readStatus;
-}
-Book.prototype.changeReadStatus = function () {
-    this.readStatus = !this.readStatus;
+// function Book(title, author, volume, pages, readStatus) {
+//     this.title = title;
+//     this.author = author;
+//     this.volume = volume;
+//     this.pages = pages;
+//     this.readStatus = readStatus;
+// }
+// Book.prototype.changeReadStatus = function () {
+//     this.readStatus = !this.readStatus;
+// }
+
+class Book {
+    constructor(title, author, volume, pages, readStatus) {
+        this.title = title,
+        this.author = author,
+        this.volume = volume,
+        this.pages = pages,
+        this.readStatus = readStatus
+    }
+
+    changeReadStatus() {
+        this.readStatus = !this.readStatus
+    }
 }
 
 if (myLibrary.length === 0) {
+    // const book = new Book('The Hobbit', 'J. R. R. Tolkien', 1, 320, false);
+    //addBookToLibrary(book);
     const book = new Book('The Hobbit', 'J. R. R. Tolkien', 1, 320, false);
     addBookToLibrary(book);
 }
@@ -52,6 +68,7 @@ submitForm.addEventListener('click', (e) => {
     let inputPages = document.querySelector('#pages').value;
     let inputReadStatus = document.querySelector('#readStatus').checked;
 
+    // const book = new Book(inputTitle, inputAuthor, inputVolume, inputPages, inputReadStatus);
     const book = new Book(inputTitle, inputAuthor, inputVolume, inputPages, inputReadStatus);
     addBookToLibrary(book);
     loadBooks();
