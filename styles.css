@@ -101,3 +101,11 @@ fieldset legend {
 .dialog-readstatus-div p {
     display: inline;
 }
+
+.titleError,
+.authorError,
+.volumeError,
+.pageError {
+    background-color: red;
+    font-size: 16px;
+}
